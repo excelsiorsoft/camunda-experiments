@@ -1,0 +1,17 @@
+curl -X POST \
+  http://localhost:8080/twitter-demo/invoke \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 95' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: localhost:8080' \
+  -H 'Postman-Token: 613f2624-5a65-47cb-be52-8184fe224ec0,ad3dc5e0-8a21-4c02-971e-d367f8a8aa7d' \
+  -H 'User-Agent: PostmanRuntime/7.20.1' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"email": "simeon.leyzerzon@bnymellon.com",
+	"content": "This is the message to be twitted"
+}'
+
