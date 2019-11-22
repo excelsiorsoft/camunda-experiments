@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
 public class RejectionNotificationDelegate implements JavaDelegate {
 
   public void execute(DelegateExecution execution) throws Exception {
-    String content = (String) execution.getVariable("content");
+    String content = (String) execution.getVariable("content"); 
     String comments = (String) execution.getVariable("comments");
 
     System.out.println("Hi!\n\n"
