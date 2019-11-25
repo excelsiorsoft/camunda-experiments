@@ -45,6 +45,33 @@ public class ProcessFlowController {
 	    return processInstanceId;
 	}
 	
+	@RequestMapping(value= "/review", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public String reviewTweet( @RequestBody ReviewTweet data) {
+		
+		boolean approved = data.approved;
+		String comments = data.comments;
+		
+		Map<String, Object> context = new HashMap<>();
+		context.put("approved", approved);
+		context.put("comments", comments);
+		
+		logger.info("Application approved: {} with comments: {}", approved, comments);
+		
+		ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().singleResult();
+		String processInstanceId = processInstance.getId();
+		logger.info("Instance from the query: {}", processInstanceId);
+
+	    
+	    runtimeService.createProcessInstanceModification(processInstanceId)
+	    .startAfterActivity("user_task_review_tweet")
+	    .setVariable("approved", approved)
+	    .setVariable("comments", comments)
+	    .execute();
+	    return processInstanceId;
+	
+	}
+	
 	public static class CreateTweet {
 		public String email;
 		public String content;
