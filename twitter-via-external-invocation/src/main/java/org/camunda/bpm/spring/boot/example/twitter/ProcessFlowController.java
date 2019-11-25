@@ -6,6 +6,7 @@ package org.camunda.bpm.spring.boot.example.twitter;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.camunda.bpm.engine.RuntimeService;
@@ -58,17 +59,23 @@ public class ProcessFlowController {
 		
 		logger.info("Application approved: {} with comments: {}", approved, comments);
 		
-		ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().singleResult();
-		String processInstanceId = processInstance.getId();
-		logger.info("Instance from the query: {}", processInstanceId);
-
+		List<ProcessInstance> processInstances = runtimeService.createProcessInstanceQuery().list();
+		StringBuilder builder = new StringBuilder();
+		
+		for(ProcessInstance processInstance: processInstances) {
+			String processInstanceId = processInstance.getId();
+			logger.info("Instance from the query: {}", processInstanceId);
+			
+			runtimeService.createProcessInstanceModification(processInstanceId)
+		    .startAfterActivity("user_task_review_tweet")
+		    .setVariable("approved", approved)
+		    .setVariable("comments", comments)
+		    .execute();
+			builder.append(processInstanceId).append(",");
+			
+		}
 	    
-	    runtimeService.createProcessInstanceModification(processInstanceId)
-	    .startAfterActivity("user_task_review_tweet")
-	    .setVariable("approved", approved)
-	    .setVariable("comments", comments)
-	    .execute();
-	    return processInstanceId;
+	    return builder.toString();
 	
 	}
 	
