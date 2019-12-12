@@ -1,0 +1,1150 @@
+     - @ConditionalOnBean (types: org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TransactionAutoConfiguration.EnableTransactionManagementConfiguration matched:
+      - @ConditionalOnBean (types: org.springframework.transaction.TransactionManager; SearchStrategy: all) found bean 'transactionManager'; @ConditionalOnBean (types: org.springframework.transaction.annotation.AbstractTransactionManagementConfiguration; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TransactionAutoConfiguration.EnableTransactionManagementConfiguration.CglibAutoProxyConfiguration matched:
+      - @ConditionalOnProperty (spring.aop.proxy-target-class=true) matched (OnPropertyCondition)
+
+   TransactionAutoConfiguration.TransactionTemplateConfiguration matched:
+      - @ConditionalOnBean (types: org.springframework.transaction.PlatformTransactionManager; SearchStrategy: all) found a primary bean from beans 'transactionManager' (OnBeanCondition)
+
+   TransactionAutoConfiguration.TransactionTemplateConfiguration#transactionTemplate matched:
+      - @ConditionalOnBean (types: org.springframework.transaction.support.TransactionOperations; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UtilAutoConfiguration matched:
+      - @ConditionalOnProperty (spring.cloud.util.enabled) matched (OnPropertyCondition)
+
+   UtilAutoConfiguration#inetUtils matched:
+      - @ConditionalOnBean (types: org.springframework.cloud.commons.util.InetUtils; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   ValidationAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'javax.validation.executable.ExecutableValidator' (OnClassCondition)
+      - @ConditionalOnResource found location classpath:META-INF/services/javax.validation.spi.ValidationProvider (OnResourceCondition)
+
+   ValidationAutoConfiguration#defaultValidator matched:
+      - @ConditionalOnBean (types: javax.validation.Validator; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   ValidationAutoConfiguration#methodValidationPostProcessor matched:
+      - @ConditionalOnBean (types: org.springframework.validation.beanvalidation.MethodValidationPostProcessor; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebClientAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
+   WebClientAutoConfiguration#webClientBuilder matched:
+      - @ConditionalOnBean (types: org.springframework.web.reactive.function.client.WebClient$Builder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebClientAutoConfiguration.WebClientCodecsConfiguration matched:
+      - @ConditionalOnBean (types: org.springframework.boot.web.codec.CodecCustomizer; SearchStrategy: all) found beans 'jacksonCodecCustomizer', 'loggingCodecCustomizer' (OnBeanCondition)
+
+   WebClientAutoConfiguration.WebClientCodecsConfiguration#exchangeStrategiesCustomizer matched:
+      - @ConditionalOnBean (types: org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientCodecCustomizer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebClientMetricsConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
+   WebClientMetricsConfiguration#defaultWebClientExchangeTagsProvider matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.metrics.web.reactive.client.WebClientExchangeTagsProvider; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebEndpointAutoConfiguration matched:
+      - @ConditionalOnWebApplication (required) found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+
+   WebEndpointAutoConfiguration#controllerEndpointDiscoverer matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.annotation.ControllerEndpointsSupplier; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebEndpointAutoConfiguration#endpointMediaTypes matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.EndpointMediaTypes; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebEndpointAutoConfiguration#pathMappedEndpoints matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.PathMappedEndpoints; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebEndpointAutoConfiguration#webEndpointDiscoverer matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.WebEndpointsSupplier; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebFluxAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
+      - found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: org.springframework.web.reactive.config.WebFluxConfigurationSupport; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebFluxEndpointManagementContextConfiguration matched:
+      - @ConditionalOnClass found required classes 'org.springframework.web.reactive.DispatcherHandler', 'org.springframework.http.server.reactive.HttpHandler' (OnClassCondition)
+      - found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.WebEndpointsSupplier; SearchStrategy: all) found bean 'webEndpointDiscoverer' (OnBeanCondition)
+
+   WebFluxEndpointManagementContextConfiguration#controllerEndpointHandlerMapping matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.reactive.ControllerEndpointHandlerMapping; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebFluxEndpointManagementContextConfiguration#webEndpointReactiveHandlerMapping matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.endpoint.web.reactive.WebFluxEndpointHandlerMapping; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebFluxMetricsAutoConfiguration matched:
+      - found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: io.micrometer.core.instrument.MeterRegistry; SearchStrategy: all) found bean 'simpleMeterRegistry' (OnBeanCondition)
+
+   WebFluxMetricsAutoConfiguration#webfluxTagConfigurer matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.metrics.web.reactive.server.WebFluxTagsProvider; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+   ActiveMQAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.jms.ConnectionFactory' (OnClassCondition)
+
+   AopAutoConfiguration.JdkDynamicAutoProxyConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (spring.aop.proxy-target-class=false) did not find property 'proxy-target-class' (OnPropertyCondition)
+
+   AppOpticsMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.appoptics.AppOpticsMeterRegistry' (OnClassCondition)
+
+   ArtemisAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.jms.ConnectionFactory' (OnClassCondition)
+
+   AsyncLoadBalancerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.LoadBalancerClient; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.LoadBalancerClient (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.client.AsyncRestTemplate' (OnClassCondition)
+
+   AtlasMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.atlas.AtlasMeterRegistry' (OnClassCondition)
+
+   AtomikosJtaConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.atomikos.icatch.jta.UserTransactionManager' (OnClassCondition)
+
+   AuditAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.audit.AuditEventRepository; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.audit.AuditEventRepository (OnBeanCondition)
+      Matched:
+         - @ConditionalOnProperty (management.auditevents.enabled) matched (OnPropertyCondition)
+
+   AuditEventsEndpointAutoConfiguration#auditEventsEndpoint:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.audit.AuditEventRepository; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.audit.AuditEventRepository (OnBeanCondition)
+
+   AutoServiceRegistrationAutoConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (spring.cloud.service-registry.auto-registration.enabled) found different value in property 'spring.cloud.service-registry.auto-registration.enabled' (OnPropertyCondition)
+
+   BatchAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.batch.core.launch.JobLauncher' (OnClassCondition)
+
+   BitronixJtaConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'bitronix.tm.jndi.BitronixContext' (OnClassCondition)
+
+   CTTExceptionHandlerAdvice:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   CacheAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cache.interceptor.CacheAspectSupport; SearchStrategy: all) did not find any beans of type org.springframework.cache.interceptor.CacheAspectSupport (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.cache.CacheManager' (OnClassCondition)
+
+   CacheAutoConfiguration.CacheManagerEntityManagerFactoryDependsOnPostProcessor:
+      Did not match:
+         - Ancestor org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean' (OnClassCondition)
+
+   CacheMeterBinderProvidersConfiguration.CaffeineCacheMeterBinderProviderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'org.springframework.cache.caffeine.CaffeineCache', 'com.github.benmanes.caffeine.cache.Cache' (OnClassCondition)
+
+   CacheMeterBinderProvidersConfiguration.EhCache2CacheMeterBinderProviderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'org.springframework.cache.ehcache.EhCacheCache', 'net.sf.ehcache.Ehcache' (OnClassCondition)
+
+   CacheMeterBinderProvidersConfiguration.JCacheCacheMeterBinderProviderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'org.springframework.cache.jcache.JCacheCache', 'javax.cache.CacheManager' (OnClassCondition)
+
+   CacheMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cache.CacheManager; SearchStrategy: all) did not find any beans of type org.springframework.cache.CacheManager (OnBeanCondition)
+
+   CaffeineCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'com.github.benmanes.caffeine.cache.Caffeine', 'org.springframework.cache.caffeine.CaffeineCacheManager' (OnClassCondition)
+
+   CamundaBpmActuatorConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (management.health.camunda.enabled) found different value in property 'enabled' (OnPropertyCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.boot.actuate.health.HealthIndicator' (OnClassCondition)
+
+   CamundaBpmConfiguration#createAdminUserConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (camunda.bpm.admin-user.id) did not find property 'id' (OnPropertyCondition)
+
+   CamundaBpmConfiguration#createFilterConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (camunda.bpm.filter.create) did not find property 'create' (OnPropertyCondition)
+
+   CamundaBpmConfiguration#enterLicenseKeyConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (camunda.bpm.is-enterprise=true) found different value in property 'is-enterprise' (OnPropertyCondition)
+
+   CamundaBpmConfiguration#historyLevelAutoHandlingConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (camunda.bpm.history-level=auto) did not find property 'history-level' (OnPropertyCondition)
+
+   CamundaBpmConfiguration#historyLevelDeterminator:
+      Did not match:
+         - @ConditionalOnBean (names: historyLevelAutoConfiguration; ; SearchStrategy: all) did not find any beans named historyLevelAutoConfiguration (OnBeanCondition)
+
+   CamundaBpmConfiguration#historyLevelDeterminatorMultiDatabase:
+      Did not match:
+         - @ConditionalOnBean (names: camundaBpmJdbcTemplate,historyLevelAutoConfiguration,historyLevelDeterminator; ; SearchStrategy: all) did not find any beans named camundaBpmJdbcTemplate, historyLevelAutoConfiguration, historyLevelDeterminator (OnBeanCondition)
+
+   CamundaBpmConfiguration#processEngineConfigurationImpl:
+      Did not match:
+         - @ConditionalOnBean (types: org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl; SearchStrategy: all) found beans of type 'org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl' springProcessEngineConfiguration (OnBeanCondition)
+
+   CamundaBpmPluginConfiguration.ConnectConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin' (OnClassCondition)
+
+   CassandraAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Cluster' (OnClassCondition)
+
+   CassandraDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Cluster' (OnClassCondition)
+
+   CassandraHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Cluster' (OnClassCondition)
+
+   CassandraReactiveDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Cluster' (OnClassCondition)
+
+   CassandraReactiveHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Cluster' (OnClassCondition)
+
+   CassandraReactiveRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.cassandra.ReactiveSession' (OnClassCondition)
+
+   CassandraRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.datastax.driver.core.Session' (OnClassCondition)
+
+   ChaosMonkeyConfiguration#chaosMonkeyJmxEndpoint:
+      Did not match:
+         - @ConditionalOnEnabledEndpoint no property management.endpoint.chaosmonkeyjmx.enabled found so using endpoint default (OnEnabledEndpointCondition)
+      Matched:
+         - @ConditionalOnBean (types: de.codecentric.spring.boot.chaos.monkey.endpoints.ChaosMonkeyJmxEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   ClientHttpConnectorConfiguration.JettyClient:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.eclipse.jetty.reactive.client.ReactiveRequest' (OnClassCondition)
+
+   ClientHttpConnectorConfiguration.ReactorNetty#reactorClientResourceFactory:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.http.client.reactive.ReactorResourceFactory; SearchStrategy: all) found beans of type 'org.springframework.http.client.reactive.ReactorResourceFactory' reactorServerResourceFactory (OnBeanCondition)
+
+   CloudFoundryActuatorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.DispatcherServlet' (OnClassCondition)
+
+   CloudHypermediaAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.hypermedia.RemoteResource; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.hypermedia.RemoteResource (OnBeanCondition)
+
+   CloudServiceConnectorsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.cloud.config.java.CloudScanConfiguration' (OnClassCondition)
+
+   CommonsClientAutoConfiguration.DiscoveryLoadBalancerConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.discovery.DiscoveryClient; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.discovery.DiscoveryClient (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.boot.actuate.health.HealthIndicator' (OnClassCondition)
+         - @ConditionalOnProperty (spring.cloud.discovery.enabled) matched (OnPropertyCondition)
+
+   CompositeMeterRegistryConfiguration:
+      Did not match:
+         - NoneNestedConditions 1 matched 1 did not; NestedCondition on CompositeMeterRegistryConfiguration.MultipleNonPrimaryMeterRegistriesCondition.SingleInjectableMeterRegistry @ConditionalOnBean (types: io.micrometer.core.instrument.MeterRegistry; SearchStrategy: all) found a primary bean from beans 'simpleMeterRegistry'; NestedCondition on CompositeMeterRegistryConfiguration.MultipleNonPrimaryMeterRegistriesCondition.NoMeterRegistryCondition @ConditionalOnBean (types: io.micrometer.core.instrument.MeterRegistry; SearchStrategy: all) found beans of type 'io.micrometer.core.instrument.MeterRegistry' simpleMeterRegistry (CompositeMeterRegistryConfiguration.MultipleNonPrimaryMeterRegistriesCondition)
+
+   CouchbaseAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Cluster' (OnClassCondition)
+
+   CouchbaseCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'com.couchbase.client.java.Bucket', 'com.couchbase.client.spring.cache.CouchbaseCacheManager' (OnClassCondition)
+
+   CouchbaseDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Bucket' (OnClassCondition)
+
+   CouchbaseHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Cluster' (OnClassCondition)
+
+   CouchbaseReactiveDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Bucket' (OnClassCondition)
+
+   CouchbaseReactiveHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Cluster' (OnClassCondition)
+
+   CouchbaseReactiveRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Bucket' (OnClassCondition)
+
+   CouchbaseRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.couchbase.client.java.Bucket' (OnClassCondition)
+
+   DataSourceAutoConfiguration.EmbeddedDatabaseConfiguration:
+      Did not match:
+         - EmbeddedDataSource found supported pooled data source (DataSourceAutoConfiguration.EmbeddedDatabaseCondition)
+
+   DataSourceAutoConfiguration.PooledDataSourceConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: javax.sql.DataSource,javax.sql.XADataSource; SearchStrategy: all) found beans of type 'javax.sql.DataSource' workFlowDataSource, dataSource (OnBeanCondition)
+      Matched:
+         - AnyNestedCondition 1 matched 1 did not; NestedCondition on DataSourceAutoConfiguration.PooledDataSourceCondition.PooledDataSourceAvailable PooledDataSource found supported DataSource; NestedCondition on DataSourceAutoConfiguration.PooledDataSourceCondition.ExplicitType @ConditionalOnProperty (spring.datasource.type) did not find property 'type' (DataSourceAutoConfiguration.PooledDataSourceCondition)
+
+   DataSourceConfiguration.Dbcp2:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.commons.dbcp2.BasicDataSource' (OnClassCondition)
+
+   DataSourceConfiguration.Generic:
+      Did not match:
+         - @ConditionalOnProperty (spring.datasource.type) did not find property 'spring.datasource.type' (OnPropertyCondition)
+
+   DataSourceConfiguration.Tomcat:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.tomcat.jdbc.pool.DataSource' (OnClassCondition)
+
+   DataSourceJmxConfiguration.TomcatDataSourceJmxConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.tomcat.jdbc.pool.DataSourceProxy' (OnClassCondition)
+
+   DataSourcePoolMetadataProvidersConfiguration.CommonsDbcp2PoolDataSourceMetadataProviderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.commons.dbcp2.BasicDataSource' (OnClassCondition)
+
+   DataSourcePoolMetadataProvidersConfiguration.TomcatDataSourcePoolMetadataProviderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.tomcat.jdbc.pool.DataSource' (OnClassCondition)
+
+   DataSourceTransactionManagerAutoConfiguration.DataSourceTransactionManagerConfiguration#transactionManager:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.transaction.PlatformTransactionManager; SearchStrategy: all) found beans of type 'org.springframework.transaction.PlatformTransactionManager' transactionManager (OnBeanCondition)
+
+   DatadogMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.datadog.DatadogMeterRegistry' (OnClassCondition)
+
+   DispatcherServletAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.DispatcherServlet' (OnClassCondition)
+
+   DynatraceMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.dynatrace.DynatraceMeterRegistry' (OnClassCondition)
+
+   EhCacheCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'net.sf.ehcache.Cache', 'org.springframework.cache.ehcache.EhCacheCacheManager' (OnClassCondition)
+
+   ElasticMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.elastic.ElasticMeterRegistry' (OnClassCondition)
+
+   ElasticSearchClientHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.elasticsearch.client.Client' (OnClassCondition)
+
+   ElasticSearchJestHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.searchbox.client.JestClient' (OnClassCondition)
+
+   ElasticSearchRestHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.elasticsearch.client.RestClient' (OnClassCondition)
+
+   ElasticsearchAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.elasticsearch.client.Client' (OnClassCondition)
+
+   ElasticsearchDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.core.ElasticsearchTemplate' (OnClassCondition)
+
+   ElasticsearchRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.elasticsearch.client.Client' (OnClassCondition)
+
+   EmbeddedLdapAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.unboundid.ldap.listener.InMemoryDirectoryServer' (OnClassCondition)
+
+   EmbeddedMongoAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.MongoClient' (OnClassCondition)
+
+   EmbeddedWebServerFactoryCustomizerAutoConfiguration.JettyWebServerFactoryCustomizerConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'org.eclipse.jetty.server.Server', 'org.eclipse.jetty.util.Loader', 'org.eclipse.jetty.webapp.WebAppContext' (OnClassCondition)
+
+   EmbeddedWebServerFactoryCustomizerAutoConfiguration.TomcatWebServerFactoryCustomizerConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'org.apache.catalina.startup.Tomcat', 'org.apache.coyote.UpgradeProtocol' (OnClassCondition)
+
+   EmbeddedWebServerFactoryCustomizerAutoConfiguration.UndertowWebServerFactoryCustomizerConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'io.undertow.Undertow', 'org.xnio.SslClientAuthMode' (OnClassCondition)
+
+   ErrorMvcAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.Servlet' (OnClassCondition)
+
+   FlywayAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.flywaydb.core.Flyway' (OnClassCondition)
+
+   FlywayEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.flywaydb.core.Flyway' (OnClassCondition)
+
+   FreeMarkerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'freemarker.template.Configuration' (OnClassCondition)
+
+   GangliaMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.ganglia.GangliaMeterRegistry' (OnClassCondition)
+
+   GraphiteMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.graphite.GraphiteMeterRegistry' (OnClassCondition)
+
+   GroovyTemplateAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'groovy.text.markup.MarkupTemplateEngine' (OnClassCondition)
+
+   GsonAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.google.gson.Gson' (OnClassCondition)
+
+   H2ConsoleAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.h2.server.web.WebServlet' (OnClassCondition)
+
+   HazelcastClientConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.hazelcast.client.HazelcastClient' (OnClassCondition)
+
+   HazelcastJpaDependencyAutoConfiguration.HazelcastInstanceEntityManagerFactoryDependsOnPostProcessor:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on HazelcastJpaDependencyAutoConfiguration.OnHazelcastAndJpaCondition.HasJpa @ConditionalOnBean (types: org.springframework.orm.jpa.AbstractEntityManagerFactoryBean; SearchStrategy: all) found beans '&entityManagerFactory', '&taskDetailEntityManager'; NestedCondition on HazelcastJpaDependencyAutoConfiguration.OnHazelcastAndJpaCondition.HasHazelcastInstance @ConditionalOnBean (names: hazelcastInstance; ; SearchStrategy: all) did not find any beans named hazelcastInstance (HazelcastJpaDependencyAutoConfiguration.OnHazelcastAndJpaCondition)
+
+   HazelcastLocalConfiguration:
+      Did not match:
+         - @ConditionalOnBean (; SearchStrategy: all) did not find any beans annotated with org.springframework.cache.annotation.EnableCaching (OnBeanCondition)
+
+   HazelcastServerConfiguration.HazelcastServerConfigConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: com.hazelcast.config.Config; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   HazelcastServerConfiguration.HazelcastServerConfigFileConfiguration:
+      Did not match:
+         - ResourceCondition (Hazelcast) did not find resources 'file:./hazelcast.xml', 'classpath:/hazelcast.xml', 'file:./hazelcast.yaml', 'classpath:/hazelcast.yaml' (HazelcastServerConfiguration.ConfigAvailableCondition)
+
+   HealthEndpointWebExtensionConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   HttpClientConfiguration.OkHttpClientConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'okhttp3.OkHttpClient' (OnClassCondition)
+
+   HttpEncodingAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.filter.CharacterEncodingFilter' (OnClassCondition)
+
+   HttpMessageConvertersAutoConfiguration:
+      Did not match:
+         - NoneNestedConditions 1 matched 0 did not; NestedCondition on HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition.ReactiveWebApplication found ConfigurableReactiveWebEnvironment (HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.http.converter.HttpMessageConverter' (OnClassCondition)
+
+   HttpTraceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.trace.http.HttpTraceRepository; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.trace.http.HttpTraceRepository (OnBeanCondition)
+      Matched:
+         - @ConditionalOnWebApplication (required) found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+         - @ConditionalOnProperty (management.trace.http.enabled) matched (OnPropertyCondition)
+
+   HttpTraceAutoConfiguration.ReactiveTraceFilterConfiguration:
+      Did not match:
+         - Ancestor org.springframework.boot.actuate.autoconfigure.trace.http.HttpTraceAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+      Matched:
+         - found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+
+   HttpTraceAutoConfiguration.ServletTraceFilterConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+         - Ancestor org.springframework.boot.actuate.autoconfigure.trace.http.HttpTraceAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+
+   HttpTraceEndpointAutoConfiguration#httpTraceEndpoint:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.trace.http.HttpTraceRepository; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.trace.http.HttpTraceRepository (OnBeanCondition)
+
+   HumioMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.humio.HumioMeterRegistry' (OnClassCondition)
+
+   HypermediaAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.hateoas.EntityModel' (OnClassCondition)
+
+   IdGeneratorConfiguration#prefixedUuidGenerator:
+      Did not match:
+         - @ConditionalOnProperty (camunda.bpm.id-generator=prefixed) did not find property 'id-generator' (OnPropertyCondition)
+
+   InfinispanCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.infinispan.spring.embedded.provider.SpringEmbeddedCacheManager' (OnClassCondition)
+
+   InfluxDbAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.influxdb.InfluxDB' (OnClassCondition)
+
+   InfluxDbHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.influxdb.InfluxDB' (OnClassCondition)
+
+   InfluxMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.influx.InfluxMeterRegistry' (OnClassCondition)
+
+   InfoContributorAutoConfiguration#buildInfoContributor:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.info.BuildProperties; SearchStrategy: all) did not find any beans (OnBeanCondition)
+      Matched:
+         - @ConditionalOnEnabledInfoContributor management.info.defaults.enabled is considered true (OnEnabledInfoContributorCondition)
+
+   InfoContributorAutoConfiguration#gitInfoContributor:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.info.GitProperties; SearchStrategy: all) did not find any beans (OnBeanCondition)
+      Matched:
+         - @ConditionalOnEnabledInfoContributor management.info.defaults.enabled is considered true (OnEnabledInfoContributorCondition)
+
+   IntegrationAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.integration.config.EnableIntegration' (OnClassCondition)
+
+   IntegrationGraphEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.integration.graph.IntegrationGraphServer' (OnClassCondition)
+
+   JCacheCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'javax.cache.Caching', 'org.springframework.cache.jcache.JCacheCacheManager' (OnClassCondition)
+
+   JacksonAutoConfiguration.JodaDateTimeJacksonConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required classes 'com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer', 'com.fasterxml.jackson.datatype.joda.cfg.JacksonJodaDateFormat' (OnClassCondition)
+
+   JdbcRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+
+   JerseyAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.ServletRegistration' (OnClassCondition)
+
+   JerseySameManagementContextConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.glassfish.jersey.server.ResourceConfig' (OnClassCondition)
+
+   JerseyServerMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.jersey2.server.MetricsApplicationEventListener' (OnClassCondition)
+
+   JerseyWebEndpointManagementContextConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.glassfish.jersey.server.ResourceConfig' (OnClassCondition)
+
+   JestAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.searchbox.client.JestClient' (OnClassCondition)
+
+   JettyMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.eclipse.jetty.server.Server' (OnClassCondition)
+
+   JmsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.jms.Message' (OnClassCondition)
+
+   JmsHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.jms.ConnectionFactory' (OnClassCondition)
+
+   JmxMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.jmx.JmxMeterRegistry' (OnClassCondition)
+
+   JndiConnectionFactoryAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.jms.core.JmsTemplate' (OnClassCondition)
+
+   JndiDataSourceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (spring.datasource.jndi-name) did not find property 'jndi-name' (OnPropertyCondition)
+      Matched:
+         - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType' (OnClassCondition)
+
+   JndiJtaConfiguration:
+      Did not match:
+         - @ConditionalOnJndi JNDI environment is not available (OnJndiCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.transaction.jta.JtaTransactionManager' (OnClassCondition)
+
+   JolokiaEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.jolokia.http.AgentServlet' (OnClassCondition)
+
+   JooqAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.jooq.DSLContext' (OnClassCondition)
+
+   JpaBaseConfiguration#entityManagerFactory:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean,javax.persistence.EntityManagerFactory; SearchStrategy: all) found beans of type 'javax.persistence.EntityManagerFactory' entityManagerFactory, taskDetailEntityManager and found beans of type 'org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean' &entityManagerFactory, &taskDetailEntityManager (OnBeanCondition)
+
+   JpaBaseConfiguration.JpaWebConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.config.annotation.WebMvcConfigurer' (OnClassCondition)
+
+   JpaRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean,org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension; SearchStrategy: all) found beans of type 'org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean' &dashboardTaskRepo, &taskAssigneeDetailRepo and found beans of type 'org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension' org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension#0 (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnProperty (spring.data.jpa.repositories.enabled=true) matched (OnPropertyCondition)
+
+   JsonbAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.json.bind.Jsonb' (OnClassCondition)
+
+   KafkaAnnotationDrivenConfiguration#kafkaListenerContainerFactory:
+      Did not match:
+         - @ConditionalOnBean (names: kafkaListenerContainerFactory; ; SearchStrategy: all) found beans named kafkaListenerContainerFactory (OnBeanCondition)
+
+   KafkaAnnotationDrivenConfiguration.EnableKafkaConfiguration:
+      Did not match:
+         - @ConditionalOnBean (names: org.springframework.kafka.config.internalKafkaListenerAnnotationProcessor; ; SearchStrategy: all) found beans named org.springframework.kafka.config.internalKafkaListenerAnnotationProcessor (OnBeanCondition)
+
+   KafkaAutoConfiguration#kafkaTransactionManager:
+      Did not match:
+         - @ConditionalOnProperty (spring.kafka.producer.transaction-id-prefix) did not find property 'spring.kafka.producer.transaction-id-prefix' (OnPropertyCondition)
+
+   KafkaStreamsAnnotationDrivenConfiguration:
+      Did not match:
+         - @ConditionalOnBean (names: defaultKafkaStreamsBuilder; ; SearchStrategy: all) did not find any beans named defaultKafkaStreamsBuilder (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.apache.kafka.streams.StreamsBuilder' (OnClassCondition)
+
+   KairosMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.kairos.KairosMeterRegistry' (OnClassCondition)
+
+   LdapAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.ldap.core.ContextSource' (OnClassCondition)
+
+   LdapHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.ldap.core.LdapOperations' (OnClassCondition)
+
+   LdapRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+
+   LegacyHealthEndpointAdaptersConfiguration#healthAggregatorStatusAggregatorAdapter:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.health.HealthAggregator; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.health.HealthAggregator (OnBeanCondition)
+
+   LegacyHealthEndpointAdaptersConfiguration#healthStatusHttpMapperHttpCodeStatusMapperAdapter:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.health.HealthStatusHttpMapper; SearchStrategy: all) did not find any beans of type org.springframework.boot.actuate.health.HealthStatusHttpMapper (OnBeanCondition)
+
+   LiquibaseAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'liquibase.change.DatabaseChange' (OnClassCondition)
+
+   LiquibaseEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'liquibase.integration.spring.SpringLiquibase' (OnClassCondition)
+
+   LoadBalancerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.LoadBalancerClient; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.LoadBalancerClient (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.client.RestTemplate' (OnClassCondition)
+
+   LoadBalancerAutoConfiguration.LoadBalancerInterceptorConfig:
+      Did not match:
+         - @ConditionalOnMissingClass found unwanted class 'org.springframework.retry.support.RetryTemplate' (OnClassCondition)
+         - Ancestor org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+
+   LoadBalancerAutoConfiguration.RetryAutoConfiguration:
+      Did not match:
+         - Ancestor org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.retry.support.RetryTemplate' (OnClassCondition)
+
+   LoadBalancerAutoConfiguration.RetryInterceptorAutoConfiguration:
+      Did not match:
+         - Ancestor org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.retry.support.RetryTemplate' (OnClassCondition)
+
+   Log4J2MetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.logging.log4j.core.LoggerContext' (OnClassCondition)
+
+   LogFileWebEndpointAutoConfiguration#logFileWebEndpoint:
+      Did not match:
+         - Log File did not find logging file (LogFileWebEndpointAutoConfiguration.LogFileCondition)
+
+   MailHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.mail.javamail.JavaMailSenderImpl' (OnClassCondition)
+
+   MailSenderAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.mail.MailSender' (OnClassCondition)
+
+   MailSenderValidatorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnSingleCandidate did not find required type 'org.springframework.mail.javamail.JavaMailSenderImpl' (OnBeanCondition)
+
+   ManagementContextAutoConfiguration.DifferentManagementContextConfiguration:
+      Did not match:
+         - Management Port actual port type (SAME) did not match required type (DIFFERENT) (OnManagementPortCondition)
+
+   ManagementWebSecurityAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+
+   MappingsEndpointAutoConfiguration.ServletWebConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   MessageSourceAutoConfiguration:
+      Did not match:
+         - ResourceBundle did not find bundle with basename messages (MessageSourceAutoConfiguration.ResourceBundleCondition)
+
+   MongoAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.MongoClient' (OnClassCondition)
+
+   MongoDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.client.MongoClient' (OnClassCondition)
+
+   MongoHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.mongodb.core.MongoTemplate' (OnClassCondition)
+
+   MongoReactiveAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.reactivestreams.client.MongoClient' (OnClassCondition)
+
+   MongoReactiveDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.reactivestreams.client.MongoClient' (OnClassCondition)
+
+   MongoReactiveHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.mongodb.core.ReactiveMongoTemplate' (OnClassCondition)
+
+   MongoReactiveRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.reactivestreams.client.MongoClient' (OnClassCondition)
+
+   MongoRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.mongodb.MongoClient' (OnClassCondition)
+
+   MultipartAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.MultipartConfigElement' (OnClassCondition)
+
+   MustacheAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.samskivert.mustache.Mustache' (OnClassCondition)
+
+   Neo4jDataAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.neo4j.ogm.session.SessionFactory' (OnClassCondition)
+
+   Neo4jHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.neo4j.ogm.session.SessionFactory' (OnClassCondition)
+
+   Neo4jRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.neo4j.ogm.session.Neo4jSession' (OnClassCondition)
+
+   NewRelicMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.newrelic.NewRelicMeterRegistry' (OnClassCondition)
+
+   NoOpMeterRegistryConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: io.micrometer.core.instrument.MeterRegistry; SearchStrategy: all) found beans of type 'io.micrometer.core.instrument.MeterRegistry' simpleMeterRegistry (OnBeanCondition)
+
+   NoopDiscoveryClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.discovery.DiscoveryClient; SearchStrategy: all) found beans of type 'org.springframework.cloud.client.discovery.DiscoveryClient' compositeDiscoveryClient, simpleDiscoveryClient (OnBeanCondition)
+
+   NoopDiscoveryClientAutoConfiguration.Boot15PortFinderConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.boot.context.embedded.EmbeddedWebApplicationContext' (OnClassCondition)
+         - Ancestor org.springframework.cloud.client.discovery.noop.NoopDiscoveryClientAutoConfiguration did not match (ConditionEvaluationReport.AncestorsMatchedCondition)
+
+   OAuth2ClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   OAuth2ResourceServerAutoConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   ProjectInfoAutoConfiguration#buildProperties:
+      Did not match:
+         - @ConditionalOnResource did not find resource '${spring.info.build.location:classpath:META-INF/build-info.properties}' (OnResourceCondition)
+
+   ProjectInfoAutoConfiguration#gitProperties:
+      Did not match:
+         - GitResource did not find git info at classpath:git.properties (ProjectInfoAutoConfiguration.GitResourceAvailableCondition)
+
+   PrometheusMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.prometheus.PrometheusMeterRegistry' (OnClassCondition)
+
+   QuartzAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.quartz.Scheduler' (OnClassCondition)
+
+   RSocketMessagingAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.rsocket.RSocketFactory' (OnClassCondition)
+
+   RSocketRequesterAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.rsocket.RSocketFactory' (OnClassCondition)
+
+   RSocketSecurityAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.rsocket.core.SecuritySocketAcceptorInterceptor' (OnClassCondition)
+
+   RSocketServerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.rsocket.RSocketFactory' (OnClassCondition)
+
+   RSocketStrategiesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.rsocket.RSocketFactory' (OnClassCondition)
+
+   RabbitAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.rabbitmq.client.Channel' (OnClassCondition)
+
+   RabbitHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.amqp.rabbit.core.RabbitTemplate' (OnClassCondition)
+
+   RabbitMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.rabbitmq.client.ConnectionFactory' (OnClassCondition)
+
+   ReactiveCloudFoundryActuatorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnCloudPlatform did not find CLOUD_FOUNDRY (OnCloudPlatformCondition)
+      Matched:
+         - found ConfigurableReactiveWebEnvironment (OnWebApplicationCondition)
+         - @ConditionalOnProperty (management.cloudfoundry.enabled) matched (OnPropertyCondition)
+
+   ReactiveElasticsearchRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.client.reactive.ReactiveElasticsearchClient' (OnClassCondition)
+
+   ReactiveLoadBalancerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.LoadBalancerClient; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.LoadBalancerClient (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
+   ReactiveManagementWebSecurityAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity' (OnClassCondition)
+
+   ReactiveOAuth2ClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity' (OnClassCondition)
+
+   ReactiveOAuth2ResourceServerAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity' (OnClassCondition)
+
+   ReactiveRestClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.client.reactive.ReactiveRestClients' (OnClassCondition)
+
+   ReactiveSecurityAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity' (OnClassCondition)
+
+   ReactiveWebServerFactoryAutoConfiguration#forwardedHeaderTransformer:
+      Did not match:
+         - @ConditionalOnProperty (server.forward-headers-strategy=framework) did not find property 'server.forward-headers-strategy' (OnPropertyCondition)
+
+   ReactiveWebServerFactoryAutoConfiguration#tomcatReactiveWebServerFactoryCustomizer:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.catalina.startup.Tomcat' (OnClassCondition)
+
+   ReactiveWebServerFactoryConfiguration.EmbeddedJetty:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.eclipse.jetty.server.Server' (OnClassCondition)
+
+   ReactiveWebServerFactoryConfiguration.EmbeddedTomcat:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.catalina.startup.Tomcat' (OnClassCondition)
+
+   ReactiveWebServerFactoryConfiguration.EmbeddedUndertow:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.undertow.Undertow' (OnClassCondition)
+
+   ReactorLoadBalancerClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
+   RedisAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.core.RedisOperations' (OnClassCondition)
+
+   RedisCacheConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.connection.RedisConnectionFactory' (OnClassCondition)
+
+   RedisHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.connection.RedisConnectionFactory' (OnClassCondition)
+
+   RedisReactiveAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.connection.ReactiveRedisConnectionFactory' (OnClassCondition)
+
+   RedisReactiveHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.connection.ReactiveRedisConnectionFactory' (OnClassCondition)
+
+   RedisRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+
+   RepositoryRestMvcAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration' (OnClassCondition)
+
+   RestClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.elasticsearch.client.RestClient' (OnClassCondition)
+
+   RestTemplateAutoConfiguration:
+      Did not match:
+         - NoneNestedConditions 1 matched 0 did not; NestedCondition on RestTemplateAutoConfiguration.NotReactiveWebApplicationCondition.ReactiveWebApplication found ConfigurableReactiveWebEnvironment (RestTemplateAutoConfiguration.NotReactiveWebApplicationCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.client.RestTemplate' (OnClassCondition)
+
+   RestTemplateMetricsConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.web.client.RestTemplateBuilder; SearchStrategy: all) did not find any beans of type org.springframework.boot.web.client.RestTemplateBuilder (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.web.client.RestTemplate' (OnClassCondition)
+
+   Saml2RelyingPartyAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (OnClassCondition)
+
+   SecurityDataConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.data.repository.query.SecurityEvaluationContextExtension' (OnClassCondition)
+
+   SecurityFilterAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.http.SessionCreationPolicy' (OnClassCondition)
+
+   SecurityRequestMatchersManagementContextConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.web.util.matcher.RequestMatcher' (OnClassCondition)
+
+   SendGridAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'com.sendgrid.SendGrid' (OnClassCondition)
+
+   ServiceRegistryAutoConfiguration.ServiceRegistryEndpointConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cloud.client.serviceregistry.ServiceRegistry; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.serviceregistry.ServiceRegistry (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.boot.actuate.endpoint.annotation.Endpoint' (OnClassCondition)
+
+   ServletEndpointManagementContextConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   ServletManagementContextAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.Servlet' (OnClassCondition)
+
+   ServletWebServerFactoryAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.ServletRequest' (OnClassCondition)
+
+   SessionAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.session.Session' (OnClassCondition)
+
+   SessionsEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.session.FindByIndexNameSessionRepository' (OnClassCondition)
+
+   ShutdownEndpointAutoConfiguration:
+      Did not match:
+         - @ConditionalOnAvailableEndpoint no property management.endpoint.shutdown.enabled found so using endpoint default (OnAvailableEndpointCondition)
+
+   SignalFxMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.signalfx.SignalFxMeterRegistry' (OnClassCondition)
+
+   SolrAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.solr.client.solrj.impl.CloudSolrClient' (OnClassCondition)
+
+   SolrHealthContributorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.solr.client.solrj.SolrClient' (OnClassCondition)
+
+   SolrRepositoriesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.solr.client.solrj.SolrClient' (OnClassCondition)
+
+   SpringBootWebSecurityConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+
+   SpringDataWebAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.config.annotation.WebMvcConfigurer' (OnClassCondition)
+
+   StatsdMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.statsd.StatsdMeterRegistry' (OnClassCondition)
+
+   TaskExecutionAutoConfiguration#applicationTaskExecutor:
+      Did not match:
+         - @ConditionalOnBean (types: java.util.concurrent.Executor; SearchStrategy: all) found beans of type 'java.util.concurrent.Executor' camundaTaskExecutor (OnBeanCondition)
+
+   ThymeleafAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.thymeleaf.spring5.SpringTemplateEngine' (OnClassCondition)
+
+   TomcatMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.apache.catalina.Manager' (OnClassCondition)
+
+   TransactionAutoConfiguration#transactionalOperator:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.transaction.ReactiveTransactionManager; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TransactionAutoConfiguration.EnableTransactionManagementConfiguration.JdkDynamicAutoProxyConfiguration:
+      Did not match:
+         - @ConditionalOnProperty (spring.aop.proxy-target-class=false) did not find property 'proxy-target-class' (OnPropertyCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean did not find required type 'org.springframework.security.config.annotation.ObjectPostProcessor' (OnBeanCondition)
+
+   WavefrontMetricsExportAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.micrometer.wavefront.WavefrontMeterRegistry' (OnClassCondition)
+
+   WebEndpointAutoConfiguration.WebEndpointServletConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   WebFluxAutoConfiguration#hiddenHttpMethodFilter:
+      Did not match:
+         - @ConditionalOnProperty (spring.webflux.hiddenmethod.filter.enabled) did not find property 'enabled' (OnPropertyCondition)
+
+   WebFluxAutoConfiguration.ResourceChainCustomizerConfiguration:
+      Did not match:
+         - @ConditionalOnEnabledResourceChain did not find class org.webjars.WebJarAssetLocator (OnEnabledResourceChainCondition)
+
+   WebMvcAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.Servlet' (OnClassCondition)
+
+   WebMvcEndpointManagementContextConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.DispatcherServlet' (OnClassCondition)
+
+   WebMvcMetricsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.servlet.DispatcherServlet' (OnClassCondition)
+
+   WebSecurityEnablerConfiguration:
+      Did not match:
+         - not a servlet web application (OnWebApplicationCondition)
+
+   WebServiceTemplateAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.oxm.Marshaller' (OnClassCondition)
+
+   WebServicesAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.ws.transport.http.MessageDispatcherServlet' (OnClassCondition)
+
+   WebSocketMessagingAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer' (OnClassCondition)
+
+   WebSocketReactiveAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.Servlet' (OnClassCondition)
+
+   WebSocketServletAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'javax.servlet.Servlet' (OnClassCondition)
+
+   XADataSourceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.boot.jdbc.XADataSourceWrapper; SearchStrategy: all) did not find any beans of type org.springframework.boot.jdbc.XADataSourceWrapper (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'javax.transaction.TransactionManager', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType' (OnClassCondition)
