@@ -1,45 +1,26 @@
-@Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(
-		basePackages = {"cwp.services.adhoc_processor.repository.acs" }, 
-		entityManagerFactoryRef = "acsEntityManagerFactory", 
-		transactionManagerRef = "acsTransactionManager")
-
-public class AcsDatasourceConfiguration {
-
-	@Autowired
-	private AcsDbProperties properties;
-
-	@Validated
-	@Component
-	@ConfigurationProperties(prefix = "acs.read.datasource")
-	public class AcsDbProperties extends HikariDBProperties {
-	}
-
-	@ConditionalOnBean(value = AcsDbProperties.class)
-	@Bean(name = "acsDataSource", destroyMethod = "")
-	public DataSource acsDataSource() {
-		return new HikariDataSource(new HikariConfig(properties.getProperties()));
-	}
-
-	@Bean(name = "acsEntityManagerFactory")
-	public LocalContainerEntityManagerFactoryBean acsEntityManagerFactory(EntityManagerFactoryBuilder builder) {
-		return builder.dataSource(acsDataSource())
-				.packages("cwp.services.adhoc_processor.domain.acs" )
-				.persistenceUnit("acs")
-				.build();
-	}
-
-	
-	@Bean
-	public PlatformTransactionManager acsTransactionManager
-			(
-			@Qualifier("acsEntityManagerFactory")
-			final  LocalContainerEntityManagerFactoryBean acsEntityManagerFactory
-			) {
-		
-				return new JpaTransactionManager(acsEntityManagerFactory.getObject());
-	}
-	
-
-}
+acs:
+  read:
+    datasource:
+      initial-size: 1
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url-file: acs.jdbc.url
+      logAbandoned: true
+      maxActive: 2
+      maxIdle: 2
+      maxWait: 180000
+      minEvictableIdleTimeMillis: 30000
+      minIdle: 1
+      removeAbandoned: true
+      removeAbandonedTimeout: 60
+      suspectTimeout: 120
+      testOnBorrow: true
+      testOnReturn: false
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 30000
+      validationInterval: 1800000
+      validationQuery: select 1 from dual
+      credentialsFile: acs.read.credentials
+      maximum-pool-size: 2 
+      validationTimeout: 250 
+      connectionTimeout: 250 
+      connectionInitSql: select 1 from dual
