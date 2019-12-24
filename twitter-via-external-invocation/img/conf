@@ -1,0 +1,29 @@
+@Configuration
+public class NWFDatasourceConfiguration {
+
+	@Autowired
+	NWFXADBProperties properties;
+	
+	@Bean(name="workFlowDataSource", destroyMethod="")
+	@ConditionalOnBean(value=NWFXADBProperties.class)
+	public DataSource workFlowDataSource() throws Exception {
+		AtomikosDataSourceBean bean = new  AtomikosDataSourceBean();
+		PropertyUtils.setProperties(bean, properties.getProperties());
+		bean.init();
+		return bean;
+	}
+	
+	@Validated
+	@Component
+	@ConfigurationProperties(prefix="nwf.xa.datasource")
+	public class NWFXADBProperties extends XADBProperties{
+
+	}
+	
+//	@ConfigurationProperties(prefix="nwf.system")
+//	@Data
+//	public class NWFConfiguration {
+//
+//		private String id;
+//	}
+}
