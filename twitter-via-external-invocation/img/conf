@@ -1,29 +1,28 @@
-@Configuration
-public class NWFDatasourceConfiguration {
-
-	@Autowired
-	NWFXADBProperties properties;
-	
-	@Bean(name="workFlowDataSource", destroyMethod="")
-	@ConditionalOnBean(value=NWFXADBProperties.class)
-	public DataSource workFlowDataSource() throws Exception {
-		AtomikosDataSourceBean bean = new  AtomikosDataSourceBean();
-		PropertyUtils.setProperties(bean, properties.getProperties());
-		bean.init();
-		return bean;
-	}
-	
-	@Validated
-	@Component
-	@ConfigurationProperties(prefix="nwf.xa.datasource")
-	public class NWFXADBProperties extends XADBProperties{
-
-	}
-	
-//	@ConfigurationProperties(prefix="nwf.system")
-//	@Data
-//	public class NWFConfiguration {
-//
-//		private String id;
-//	}
-}
+nwf:
+#  db:
+#    datasource:
+#      auto-commit: false
+#      connection-init-sql: select 1 from dual
+#      connection-timeout: 30000
+#      credentials-file: nwf3.db.credentials
+#      driver-class-name: oracle.jdbc.OracleDriver
+#      idle-timeout: 30000
+#      jdbc-url-file: nwf.jdbc.url
+#      maximum-pool-size: 2
+#      minimum-idle: 1
+#      max-lifetime: 1800000
+#      validation-timeout: 5000
+  xa:
+    datasource:
+      borrow-connection-timeout: 30
+      credentials-file: nwf3.db.credentials
+      jdbc-url-file: nwf.jdbc.url
+      maintenance-interval: 60
+      max-idle-time: 60
+      max-pool-size: 2
+      min-pool-size: 1
+      reap-timeout: 120
+      schema: DPL_NWF_3
+      test-query: select 1 from dual
+      unique-resource-name: nwfXa
+      xa-data-source-class-name: oracle.jdbc.xa.client.OracleXADataSource
