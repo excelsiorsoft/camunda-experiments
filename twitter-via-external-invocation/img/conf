@@ -1,26 +1,7 @@
-acs:
-  read:
-    datasource:
-      initial-size: 1
-      driver-class-name: oracle.jdbc.OracleDriver
-      jdbc-url-file: acs.jdbc.url
-      logAbandoned: true
-      maxActive: 2
-      maxIdle: 2
-      maxWait: 180000
-      minEvictableIdleTimeMillis: 30000
-      minIdle: 1
-      removeAbandoned: true
-      removeAbandonedTimeout: 60
-      suspectTimeout: 120
-      testOnBorrow: true
-      testOnReturn: false
-      testWhileIdle: true
-      timeBetweenEvictionRunsMillis: 30000
-      validationInterval: 1800000
-      validationQuery: select 1 from dual
-      credentialsFile: acs.read.credentials
-      maximum-pool-size: 2 
-      validationTimeout: 250 
-      connectionTimeout: 250 
-      connectionInitSql: select 1 from dual
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.dce.nxnworkflow.configuration.NWFProcessEngineConfiguration': Unsatisfied dependency expressed through field 'transactionManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.transaction.PlatformTransactionManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true), @org.springframework.beans.factory.annotation.Qualifier(value=transactionManager)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639) ~[spring-beans-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	
+
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.transaction.PlatformTransactionManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true), @org.springframework.beans.factory.annotation.Qualifier(value=transactionManager)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1695) ~[spring-beans-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	
