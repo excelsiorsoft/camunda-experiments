@@ -1,60 +1,15 @@
-@Configuration
-public class PaymentDatasourceConfiguration{
-	
-	@Autowired
-    private Environment env;
-	
-	@Autowired
-	private PaymentXADBProperties properties;
-
-	@Primary
-	@ConditionalOnBean(value=PaymentXADBProperties.class)
-	@Bean(name="pmtDataSource", destroyMethod="")
-	public DataSource dataSource() throws Exception {
-		AtomikosDataSourceBean bean = new  AtomikosDataSourceBean();
-		PropertyUtils.setProperties(bean, properties.getProperties());
-		bean.init();
-		return bean;
-	}
-	
-	
-	@Validated
-	@Component
-	@ConfigurationProperties(prefix="payment.xa.datasource")
-	public class PaymentXADBProperties extends XADBProperties{}
-	
-	
-	@Primary
-	@Bean(name="pmtEntityManagerFactory")
-	public LocalContainerEntityManagerFactoryBean entityManager() throws Exception {
-        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource());
-        emf.setPersistenceUnitName("payment");
-        emf.setPackagesToScan(new String[] {
-        		"cwp.services.model",
-        		"cwp.services.adhoc_processor.domain", 
-        		"com.bnymellon.ctt.cases.model"});
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabase(ORACLE);
-        emf.setJpaVendorAdapter(vendorAdapter);
-       
-        @SuppressWarnings("serial")
-		Map<String, Object> properties = new HashMap<String, Object>(){
-        	{
-        		put("hibernate.show_sql", env.getProperty("spring.jpa.show-sql"));
-                put("hibernate.dialect", env.getProperty("spring.jpa.properties.hibernate.dialect"));
-                put("hibernate.default_schema",env.getProperty("spring.datasource.schema"));
-                put("hibernate.transaction.jta.platform", "cwp.services.AtomikosJtaPlatform");
-        		put("javax.persistence.transactionType", "JTA");
-        	}
-        };
-//        properties.put("hibernate.show_sql", env.getProperty("spring.jpa.show-sql"));
-//        properties.put("hibernate.dialect", env.getProperty("spring.jpa.properties.hibernate.dialect"));
-//        properties.put("hibernate.default_schema",env.getProperty("spring.datasource.schema"));
-//        properties.put("hibernate.transaction.jta.platform", "cwp.services.AtomikosJtaPlatform");
-//		properties.put("javax.persistence.transactionType", "JTA");
-        emf.setJpaPropertyMap(properties);
-        return emf;
-    }
-	
-}
+payment:
+   xa:
+      datasource:
+         borrow-connection-timeout: 30
+         credentials-file: payment.write.credentials
+         jdbc-url-file: case.jdbc.url
+         maintenance-interval: 60
+         max-idle-time: 60
+         max-pool-size: 2
+         min-pool-size: 1
+         reap-timeout: 120
+         schema: DPL_CASE
+         test-query: select 1 from dual
+         unique-resource-name: paymentXA
+         xa-data-source-class-name: oracle.jdbc.xa.client.OracleXADataSource 
