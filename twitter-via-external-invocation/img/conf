@@ -1,1 +1,4 @@
-	spring.jpa.properties.hibernate.default_schema=BNYMACS
+@Entity
+@Table(name="LINKS")
+@Data
+public class Links implements Serializable{
