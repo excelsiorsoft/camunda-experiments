@@ -1,2 +1,1 @@
-curl --location --request GET 'http://localhost:7010/exs/acs/accounts-links?limit=20&q=632626&showActive=false&systemName=IMMS' \
---header 'Content-Type: application/json'
+select a.FACCIN, a.FACCKEY, a.FACCSNAME, b.LNKSYSTEM, b.LNKLOANKEY, a.FACCSTATUS, a.FACCCOND from BNYMACS.ACCOUNT a left outer join BNYMACS.LINKS b on a.FACCIN = b.lnkacc where (upper(a.FACCKEY) like '632626%' or upper(FACCSNAME) like '632626%' or (b.LNKLOANKEY like '632626%' )) and b.LNKSYSTEM ='IMMS'  and rownum<=20 order by 3 ;
