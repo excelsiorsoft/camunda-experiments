@@ -1,12 +1,9 @@
-2019-12-26 22:01:36.863[0;39m [31mERROR[0;39m [35m12232[0;39m [2m---[0;39m [2m[ctor-http-nio-3][0;39m [36ma.w.r.e.AbstractErrorWebExceptionHandler[0;39m [2m:[0;39m [ca8305eb] 500 Server Error for HTTP GET "/exs/acs/accounts-links?limit=20&q=632626&showActive=false&systemName=IMMS"
-
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select a.FACCIN, a.FACCKEY, a.FACCSNAME, b.LNKSYSTEM, b.LNKLOANKEY, a.FACCSTATUS, a.FACCCOND from BNYMACS.ACCOUNT a left outer join BNYMACS.LINKS b on a.FACCIN = b.lnkacc where (upper(a.FACCKEY) like ? or upper(FACCSNAME) like ? or (b.LNKLOANKEY like ? )) and b.LNKSYSTEM =?  and rownum<=? order by 3 ]; nested exception is java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
-
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:235) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	|_ checkpoint ? org.springframework.boot.actuate.metrics.web.reactive.server.MetricsWebFilter [DefaultWebFilterChain]
-	|_ checkpoint ? HTTP GET "/exs/acs/accounts-links?limit=20&q=632626&showActive=false&systemName=IMMS" [ExceptionHandlingWebHandler]
-Stack trace:
-		at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:235) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-		
+	@Transactional(
+			readOnly = true,
+			transactionManager = "transactionManager",
+			rollbackFor = {Exception.class}
+			)
+	public AccountLinksList searchAccountLinkDetails(final String searchTerm, int limit, boolean isActive,String systemName) {
+		log.debug("Retrieving the list of matching Accounts.\nsearchTerm='{}', limit='{}', isActive='{}', systemName='{}'", searchTerm, limit, isActive, systemName);
+		return linksRepository.searchByAccountOrLinks(searchTerm.toUpperCase()+"%",limit,isActive,systemName);
+	}
