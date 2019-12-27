@@ -1,3 +1,25 @@
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.camunda.bpm.engine.spring.SpringProcessEngineServicesConfiguration': Unsatisfied dependency expressed through field 'processEngine'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.bnymellon.nxnworkflow.configuration.NWFProcessEngineConfiguration': Unsatisfied dependency expressed through field 'transactionManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.transaction.PlatformTransactionManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true), @org.springframework.beans.factory.annotation.Qualifier(value=transactionManager)}
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639) ~[spring-beans-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:461) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1104) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:655) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:270) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:91) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:807) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:983) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1168) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3666) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1426) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3713) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1167) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
+	at com.p6spy.engine.wrapper.PreparedStatementWrapper.executeQuery(PreparedStatementWrapper.java:78) ~[p6spy-3.8.2.jar:na]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:678) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:669) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:712) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:763) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
 	
