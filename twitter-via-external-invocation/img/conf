@@ -1,1 +1,1 @@
-	"select  a from Account a, Links l where l.accountId = a.id and l.loanKey = :loanKey and l.linkSystem = :systemName and(upper(a.status) <> 'TERMINATED' or upper(a.condition) <>'STOPPED' )";
+	spring.jpa.properties.hibernate.default_schema=BNYMACS
