@@ -1,9 +1,1 @@
-	@Transactional(
-			readOnly = true,
-			transactionManager = "transactionManager",
-			rollbackFor = {Exception.class}
-			)
-	public AccountLinksList searchAccountLinkDetails(final String searchTerm, int limit, boolean isActive,String systemName) {
-		log.debug("Retrieving the list of matching Accounts.\nsearchTerm='{}', limit='{}', isActive='{}', systemName='{}'", searchTerm, limit, isActive, systemName);
-		return linksRepository.searchByAccountOrLinks(searchTerm.toUpperCase()+"%",limit,isActive,systemName);
-	}
+	"select  a from Account a, Links l where l.accountId = a.id and l.loanKey = :loanKey and l.linkSystem = :systemName and(upper(a.status) <> 'TERMINATED' or upper(a.condition) <>'STOPPED' )";
