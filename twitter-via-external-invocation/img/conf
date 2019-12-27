@@ -1,25 +1,92 @@
-Caused by: java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+import static cwp.services.adhoc_processor.domain.acs.Account.*;
+import static cwp.services.adhoc_processor.domain.acs.Links.*;
 
-	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:461) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1104) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:655) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:270) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:91) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:807) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:983) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1168) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3666) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1426) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3713) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1167) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at com.p6spy.engine.wrapper.PreparedStatementWrapper.executeQuery(PreparedStatementWrapper.java:78) ~[p6spy-3.8.2.jar:na]
-	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:678) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:669) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:712) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:763) ~[spring-jdbc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+
+import cwp.services.adhoc_processor.domain.acs.AccountLinkDetail;
+import cwp.services.adhoc_processor.domain.acs.AccountLinkDetail.AccountLinkDetailBuilder;
+
+import cwp.services.adhoc_processor.domain.acs.AccountLinksList;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class AccountLinksRepositoryCustomImpl implements AccountLinksRepositoryCustom {
+
+	private static final String TERMINATED = "TERMINATED";
+	private static final String STOPPED = "STOPPED";
+
+	private final static String STATIC_QUERY_PART = "select a.FACCIN, a.FACCKEY, a.FACCSNAME, b.LNKSYSTEM, b.LNKLOANKEY, a.FACCSTATUS, a.FACCCOND "
+			+ "from BNYMACS.ACCOUNT a left outer join BNYMACS.LINKS b "
+			+ "on a.FACCIN = b.lnkacc where (upper(a.FACCKEY) like ? or upper(FACCSNAME) like ? "
+			+ "or (b.LNKLOANKEY like ? )) and b.LNKSYSTEM =? ";
 	
+	private final static String activeSuffix = "and upper(a.FACCSTATUS) <> 'TERMINATED' and upper(a.FACCCOND) <> 'STOPPED' ";
+
+	private final static String orderbyClause = " and rownum<=? order by 3 ";
+
+	@Autowired
+	@Qualifier("acsJdbcTemplate")
+	private JdbcTemplate template;
+
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.template = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public AccountLinksList searchByAccountOrLinks(String searchTerm, int limit, boolean isActive, String systemName) {
+		AccountLinksList accountLinksList = new AccountLinksList();
+		
+		try {
+			String dynQuery = STATIC_QUERY_PART;
+
+			if (isActive)
+				dynQuery += activeSuffix;
+
+			dynQuery += orderbyClause;
+			
+			List<AccountLinkDetail>  accountDetailsList = template.<AccountLinkDetail>query(
+					dynQuery,
+					new Object[] { searchTerm, searchTerm, searchTerm, systemName, limit }, 
+					new RowMapper<AccountLinkDetail>() {
+						@Override
+						public AccountLinkDetail mapRow(ResultSet rs, int currentRow) throws SQLException {
+							AccountLinkDetailBuilder accountDetails = AccountLinkDetail.builder();
+							accountDetails
+									.accountId(rs.getLong(ID_COLUMN_NAME))
+									.accountKey(rs.getString(ACCOUNT_KEY_COLUMN_NAME))
+									.accountName(rs.getString(ACCOUNT_SHORT_NAME_COLUMN_NAME))
+									.loanKey(rs.getString(LOAN_KEY_COLUMN_NAME))
+									.systemName(rs.getString(LINK_SYSTEM_COLUMN_NAME));
+							if (rs.getString(CONDITION_COLUMN_NAME) != null
+									&& !rs.getString(CONDITION_COLUMN_NAME).equalsIgnoreCase(STOPPED)
+									&& rs.getString(STATUS_COLUMN_NAME) != null
+									&& !rs.getString(STATUS_COLUMN_NAME).equalsIgnoreCase(TERMINATED)) {
+								accountDetails.isActive(true);
+							}
+							return accountDetails.build();
+						}
+							
+						
+						
+					});
+			accountLinksList.setAccountLinkDetail(accountDetailsList);
+		} catch (Exception e) {
+			log.error("Technical Exception", e);
+			throw e;
+		}
+		return accountLinksList;
+	}
+
+}
