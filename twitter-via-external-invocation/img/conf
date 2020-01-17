@@ -1,3 +1,0 @@
-@Entity(name="Account")
-@Table(name="ACCOUNT")
-public class Account implements Serializable{
