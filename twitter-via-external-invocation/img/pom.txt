@@ -1,158 +1,166 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>xxxxx</groupId>
-		<artifactId>parent</artifactId>
-		<version>1.1.9</version>
-	</parent>
+ams\ADCGWFK
 
-	<groupId>cwp.services</groupId>
-  	<artifactId>xa-workflow-setup</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Payment Ad-Hoc Processor</name>
-	<description>Payment Ad-Hoc Processor</description>
+VDS: V082SOM115029
+simeon.leyzerzon@bnymellon.com
 
-	<properties>
-		<java.version>1.8</java.version>
-		<springboot.version>2.2.0.RELEASE</springboot.version>
-		<spring-cloud-version>Greenwich.SR3</spring-cloud-version>
-		<chaosmonkey.version>2.1.1</chaosmonkey.version>
-	</properties>
+vds.bnymellon.com
+Submit a VDS exception here:
+https://mysourcesocial.bnymellon.net/docs/DOC-97989
+SecureID Token: R5W96T
 
-	<dependencies>
+WiFi:
+https://mysourcesocial.bnymellon.net/groups/wireless-network-access
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- common domain objects -->
-		<dependency>
-			<groupId>cwp.services</groupId>
-			<artifactId>payment-orchestration-model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>sbx.services</groupId>
-			<artifactId>nxn-workflow-services</artifactId>
-			<version>2.0.0.Camunda-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>sbx.services</groupId>
-					<artifactId>api-security</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>
-						spring-boot-starter-jta-atomikos
-					</artifactId>
-				</exclusion>				
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>sbx.services</groupId>
-			<artifactId>api-commons</artifactId>
-			<version>2.0.7-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka-streams</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-commons</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle.ojdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-ci</artifactId>
-			<version>7.11.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-decisiontables</artifactId>
-			<version>7.11.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>chaos-monkey-spring-boot</artifactId>
-			<version>${chaosmonkey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud-version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${springboot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+Setup:
+https://confluence.bnymellon.net/display/BCS/Container+Services+Quickstart+for+SpringBoot
 
-	<build>
-		<finalName>${artifactId}-${version}</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-</project>
+AppEngine:
+https://appengine-ui-gf.bnymellon.net
+H:\.engine
+C:\engine <- added to windows PATH
+https://confluence.bnymellon.net/display/BCS/Installing+the+CLI
+https://confluence.bnymellon.net/display/BCS/Assembly+Descriptor
+https://appengine-ui-nonprod.bnymellon.net/#/list
+https://confluence.bnymellon.net/display/BCS/Viewing+Logs+Using+the+Dashboard
+
+Example:
+http://rc13a10183dv00.bnymellon.net:29265/profiles/actuator/health
+
+GitLab:
+https://git.bnymellon.net
+
+Jenkins Dashboard:
+https://bxp-ci.bnymellon.net/99/
+
+SAM (Simplified Access Mgmt):
+https://sam.bnymellon.net
+https://sam.bnymellon.net/eSmartForm/selectRequest.do?requestID=5553059
+
+Requests:
+https://request.bnymellon.net/ux/myitapp/ 
+
+
+AccessHub:
+https://accesshub.bnymellon.net/sioui/app/index.html#/main/dashboard
+
+Elevated Rights:
+in this link: https://confluence.bnymellon.net/display/RGSC/New+UI+Developer+Onboarding  
+Item 3
+
+IT-SIRO is Harold Jensen
+
+Time Sheets:
+https://ppm.bnymellon.net/itg/tm/SearchTimeSheets.do 
+
+Java:
+C:\Java\jdk1.8.0_231
+C:\Java\jre1.8.0_231
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath;
+
+Maven:
+C:\apache-maven-3.6.2
+C:\Users\ADCGWFK\.m2
+
+Git:
+C:\Users\ADCGWFK\AppData\Local\Programs\Git
+C:\Users\ADCGWFK\AppData\Local\Programs\Git\bin - in win path
+
+Training from Dinesh:
+https://confluence.bnymellon.net/display/FTSFTS/FTS+Functional+Training 
+
+mvn clean deploy - bypasses push to Git + Jenkins
+RUN curl -o /apis.jar "http://nexus.bnymellon.net/nexus/service/local/artifact/maven/content?r=d-CorporateTrust-snapshots&g=com.example&a=demo&v=0.0.1-SNAPSHOT&e=jar"
+http://nexus.bnymellon.net/nexus/content/repositories/d-CorporateTrust-snapshots/com/example/demo/0.0.1-SNAPSHOT/demo-0.0.1-20191113.163923-1.jar
+ 
+git pull --allow-unrelated-histories
+
+https://git.bnymellon.net/ndl-00/management/blob/dev/Dockerfile - Deal Manager
+
+  
+https://git.bnymellon.net/cwp-00 - Corporate Trust Wire Payments
+Dependencies: ndl, sbx: 
+ 
+ 
+
+Camunda
+https://confluence.bnymellon.net/display/~XBBNXBQ/Camunda+Introduction
+C:\CamundaModeler
+C:\camunda-bpm-tomcat-7.12.0-alpha6
+
+
+ 
+ 
+
+https://remedy9.bnymellon.net/forms/rem9ars/_WIPRO%3ASS%3ACreateIncident/INC-SELFSERVE/?username=SELFSERVE&pwd=BNYMSELFSERV&cacheid=da1197e8
+
+Pluralsight:
+http://app.pluralsight.com/sso/bnymellon
+
+https://confluence.bnymellon.net/display/FTSFTS/FTS+Functional+Training
+
+Payment Automation & Wire Automation
+Digitizing pmts for corp trust
+Taking the steps that involved in pmt process and see where there are opportunities for automation w object to be as stp as possible in the long run
+Carmen
+Clarisse
+Lucy
+Corp Trust Deal Mgr space
+
+CaseOrchestrator#startCaseOrchestrator()
+
+Confluence:
+https://confluence.bnymellon.net/display/CTWP/7.+DB+Model
+ 
+
+https://appengine-ui-gf.bnymellon.net/#/dashboard?cluster=nonprod17&env=dev&family=ct&app=wires
+
+Kafka UI:
+https://appengine-ui-gf.bnymellon.net/#/dashboard?service=kafka-ui&env=dev&family=ct&app=wires&cluster=nonprod17
+
+pick the running server, and its url
+Need to modify a header via Modify Header Chrome plugin:
+
+ 
+
+To request repo access: Create Issue - Jira12 [Prod]
+
+ACS repo: https://git.bnymellon.net/ndl-02/acs
+Workflow Repo: https://git.bnymellon.net/sbx-99/nxn-workflow-services
+Payment Adhoc Processor: https://git.bnymellon.net/cwp-00/payment-adhoc-processor
+
+Swagger: https://trust.dev.bnymellon.net/acs/swagger-ui.html#/
+
+
+ACS
+https://confluence.bnymellon.net/display/CTWP/Cash+Acct+Enrichment       
+
+
+
+Starting Camunda Cockpit locally:
+
+Run `WebappExampleProcessApplication-windows` lauch config
+http://localhost:8181/app/
+admin/admin
+ 
+
+If Postman screen goes dark:
+ 
+
+Deployment:
+
+Build in Jenkins:
+https://bxp-ci.bnymellon.net/99/job/CWP-Payment/job/adhoc-processor/
+
+Run:
+engine image build ct.wires.payment-adhoc-processor:0.0.1-SNAPSHOT --file /Dev-Others/git/cwp/payment-adhoc-processor/Dockerfile
+engine image build ct.wires.payment-adhoc-processor:0.0.1-SNAPSHOT --file /c/Users/ADCGWFK/workspaces/test/cwp-00/payment-adhoc-processor/Dockerfile
+
+that builds an image and pushes it here: hubble.bnymellon.net:5000/bnym/linux/sandbox/ct/wires/payment-adhoc-processor:0.0.1-SNAPSHOT
+
+engine app update --app-env dev --deployment dev --file /Dev-Others/git/cwp/payment-adhoc-processor/assembly.yml
+engine app update --app-env dev --deployment dev --file /c/Users/ADCGWFK/workspaces/test/cwp-00/payment-adhoc-processor/assembly.yml
+
+
+           
+
